@@ -63,12 +63,12 @@ LightTable.init = function(_hideFn){
 
     });
 
-    $("#lt-launch-matrix").click(function(){
+    $("#lt-launch-bitcoin").click(function(){
         $(this).find(".folder-big").css("background-color", "#fff");
         simulateCommand("cd matrix$");
     });
 
-    $("#lt-launch-anonymous").click(function(){
+    $("#lt-launch-unknown").click(function(){
         $(this).find(".folder-big").css("background-color", "#fff");
         simulateCommand("cd anonymous$");
     });
@@ -515,25 +515,25 @@ function hideWebgl(){
 }
 
 function writeResponse(txt){
-    $("#lt-command-lines").append("<div class='response'>&gt;&gt;encom-sh: " + txt + "</div>");
+    $("#lt-command-lines").append("<div class='response'>&gt;&gt;openbsd-sh: " + txt + "</div>");
 }
 
-var currentDir = "encom_root";
+var currentDir = "secops_root";
 
 function writePrompt(){
     $(".command-blinker").removeClass("blink").removeClass("command-blinker");
 
-    $("#lt-command-lines").append('<div class="command"><span class="prompt">encom-sh:' + currentDir + '$&nbsp;</span><span class="command-text"></span><span class="blink command-blinker">&nbsp;</span></div>');
+    $("#lt-command-lines").append('<div class="command"><span class="prompt">openbsd-sh:' + currentDir + '$&nbsp;</span><span class="command-text"></span><span class="blink command-blinker">&nbsp;</span></div>');
 }
 
 function writeLs(exec){
     var output = "";
     if(typeof exec != "undefined"){
         output = [
-            '<div class="ls">encom_root</div>',
+            '<div class="ls">secops_root</div>',
             '<div class="ls">bandwidth</div>',
             '<div class="ls">framework</div>',
-            '<div class="ls">@arscan</div>',
+            '<div class="ls">@berkeley</div>',
             '<div class="ls ls-exec">' + exec + '</div>',
             '<div class="ls">webgl_test</div>',
             '<div class="ls">flynn_5</div>',
@@ -546,9 +546,9 @@ function writeLs(exec){
         output = [
             '<div class="ls ls-github">github</div>',
             '<div class="ls ls-test">test</div>',
-            '<div class="ls ls-wikipedia">wikipedia</div>',
-            '<div class="ls ls-bitcoin">bitcoin</div>',
-            '<div class="ls ls-unknown">unknown</div>'
+            '<div class="ls ls-wikipedia">wiki</div>',
+            '<div class="ls ls-bitcoin">matrix</div>',
+            '<div class="ls ls-unknown">anonymous</div>'
         ].join('');
     }
 
@@ -626,17 +626,17 @@ function executeCommand(){
         currentDir = "test";
         writeResponse("Changed directory to <span class='highlight'>test</span>");
         writePrompt();
-    } else if(command == "cd bitcoin") {
+    } else if(command == "cd matrix") {
         writeResponse("<span class='alert'>Not yet implemented</span>");
         writePrompt();
-    } else if(command.indexOf("cd encom") == 0 || command == "cd /"){
-        currentDir = "encom_root";
-        writeResponse("Changed directory to <span class='highlight'>encom_root</span>");
+    } else if(command.indexOf("cd secops") == 0 || command == "cd /"){
+        currentDir = "secops_root";
+        writeResponse("Changed directory to <span class='highlight'>secops_root</span>");
         writePrompt();
     } else if(command.indexOf("cd ") == 0){
         writeResponse("<span class='alert'>Access denied</span>");
         writePrompt();
-    } else if(command.indexOf("ls") == 0 && currentDir == "encom_root"){
+    } else if(command.indexOf("ls") == 0 && currentDir == "secops_root"){
         writeLs();
         writePrompt();
 
