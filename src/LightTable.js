@@ -547,8 +547,8 @@ function writeLs(exec){
             '<div class="ls ls-github">github</div>',
             '<div class="ls ls-test">test</div>',
             '<div class="ls ls-wikipedia">wiki</div>',
-            '<div class="ls ls-bitcoin">matrix</div>',
-            '<div class="ls ls-unknown">anonymous</div>'
+            '<div class="ls ls-matrix">matrix</div>',
+            '<div class="ls ls-anonymous">anonymous</div>'
         ].join('');
     }
 
