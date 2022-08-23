@@ -63,14 +63,14 @@ LightTable.init = function(_hideFn){
 
     });
 
-    $("#lt-launch-bitcoin").click(function(){
+    $("#lt-launch-matrix").click(function(){
         $(this).find(".folder-big").css("background-color", "#fff");
-        simulateCommand("cd bitcoin$");
+        simulateCommand("cd matrix$");
     });
 
-    $("#lt-launch-unknown").click(function(){
+    $("#lt-launch-anonymous").click(function(){
         $(this).find(".folder-big").css("background-color", "#fff");
-        simulateCommand("cd unknown$");
+        simulateCommand("cd anonymous$");
     });
 
     $("#lt-keyboard div").mousedown(function(event){
